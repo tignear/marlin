@@ -137,7 +137,7 @@ impl VerylRuntime {
         }
 
         let mut verilog_source_files = vec![];
-        for file in veryl_project_path.join("src").read_dir_utf8().whatever_context("Failed to read contents of the src/ folder under the Veryl project root")?.flatten() {
+        for file in veryl_project_path.join("target").read_dir_utf8().whatever_context("Failed to read contents of the target/ folder under the Veryl project root")?.flatten() {
             if file.path().extension().map(|extension| extension == "sv").unwrap_or(false) {
                verilog_source_files.push(file.path().to_path_buf());
             }
